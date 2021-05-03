@@ -1,0 +1,717 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-05-03 Mon 19:17 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>软件困局</title>
+<meta name="author" content="Xy Ma" />
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel='stylesheet' type='text/css' href='https://www.labri.fr/perso/nrougier/GTD/GTD.css'/>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">软件困局</h1>
+
+<div id="outline-container-orga92c77d" class="outline-2">
+<h2 id="orga92c77d">我们接受的教育</h2>
+<div class="outline-text-2" id="text-orga92c77d">
+<blockquote>
+<p>
+我们的智力更适合掌握静态关系，而对于随时间变化的进程，我们将其可视化的能力却并不发达。因此，我们应该尽最大努力（明智的程序员能意识到自己的局限性），缩短静态程序和动态进程之间的概念差距，使程序（在文本空间展开的）和进程（在时间上展开的）之间的对应关系尽可能的简单。
+&#x2013; Dijkstra
+</p>
+</blockquote>
+
+<ul class="org-ul">
+<li>在阅读代码时，代码应该尽可能方便读者在头脑中跟踪计算机在执行给定的代码行时所有变量的状态及它们的含义。</li>
+<li>我在学习的阶段经历的这些故事之间有什么联系？我是自学的。我上了很多计算机科学课程，也学了很多关于如何编写软件的知识。但是后者是前者的副产品，而不是直接结果。我所欠缺的是，有人能在我做错几次之前告诉我应该怎么做，或者有人查看我编写程序的细节，而不只是看它所取得的结果。尽管我毕业时取得了计算机科学专业的学位，但我非常缺乏后来作为程序员的职业生涯中通过经验最终获得的智慧。对于软件工程这意味着什么？</li>
+<li>最明显的问题是，一次又一次让每个人从头开始搞清楚这些事情是极大的浪费。软件开发工程中，基于实验和实验结果来决定后续步骤，并在前任已经做过的工作基础上建立一个工程的概念几乎是完全缺失的。</li>
+<li>这使得那些想雇佣程序员的人很难弄清楚谁是合格的。更微妙的影响是，吓跑那些正考虑成为程序员的人。被吓跑最多，最重要的群体是女性。
+<ul class="org-ul">
+<li>《打开俱乐部之门》(Unlocking the Clubhouse)，研究了CMU计算机专业的学生。</li>
+<li>“9岁和10岁的女孩都很活跃，精力充沛和信心满满，但随着青春期的来临，她们开始内敛，怀疑自己，压抑自己的声音，并怀疑自己的想法。”</li>
+</ul></li>
+<li>程序设计中另一个重要的个性因素是至少一点点的谦逊。如果没有谦逊，程序员就注定要面对希腊戏剧的经典模式：成功导致过度自信（傲慢），又导致盲目的自我毁灭。程序员自学一些简单的技术，就感觉自己是一个专家，然后被计算机不可抗拒的力量压垮。</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org433b9cc" class="outline-2">
+<h2 id="org433b9cc">软件的层次</h2>
+<div class="outline-text-2" id="text-org433b9cc">
+<ul class="org-ul">
+<li>方法调用将软件的所有层次联系在一起，并且跨层的错误通信是导致意外发生的主要原因。处于某一层边界上的方法集合构成一个API。</li>
+<li>API将软件的所有层次结合在一起，这些层之间的错误通信是导致意外问题的主要原因。错误形式多种多样，没有给出正确参数，没有认识到内部如何解释参数，误解返回值。</li>
+<li>不幸的是，对于软件来说，不存在与电工规范等价的东西，尽管对于程序员来说，有些书籍在某些领域提出了一些建议，这这些建议没有任何实证研究的支持，他们往往会为争论的双方火上烧油。代码评审的过程实际上是其他程序员提出关于如何编写代码的个人意见，而这些意见只是他们自己的经验。
+<ul class="org-ul">
+<li>由于没有严格的数学方法来约束这些讨论，所以有些讨论变得相当激烈。 <a href="https://www.wikiwand.com/en/Harlan_Mills">Harlan Mills - Wikiwand</a></li>
+<li>（目前的）代码评审更多是关于本规范的强制执行，例如“变量命名“，”缩进“。真正糟糕的bug，安全问题或者潜在崩溃通常涉及一系列错误，每个错误都小到难以单独引起注意，但与错误的数据集合在一起时，可能造成非常严重的错误。错误通常来自负责API边界相邻两层代码的程序员之间的误解。</li>
+<li>最有害和最复杂的bug是由不同组件的作者所做的不匹配的假设所引起的系统Bug <a href="link_generated_on_download">13 整体和部分</a></li>
+</ul></li>
+
+<li>一个”本身是完整的，可以在作者开发的系统上运行“的程序和一个”大多数系统程序设计工作的预期产品“的程序设计产品的区别。从前者转换到后者需要引入两个维度的复杂度
+<ul class="org-ul">
+<li>复杂性从单一的作者到一个任何人都可以”运行，测试，修复和扩展“的程序</li>
+<li>从”单一的程序“到”一组相互作用的程序，功能协调，格式规范，他们的组合能构成完成大型任务的完整设施。</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org6a46878" class="outline-2">
+<h2 id="org6a46878">夜晚的小偷</h2>
+<div class="outline-text-2" id="text-org6a46878">
+<blockquote>
+<p>
+&ldquo;我们将要研究的规则可以通过改变程序来提高效率，但这种更改通常会降低程序的清晰度、模块性和健壮性。当这种程序设计方式在整个大型系统中被不加选择地应用时（通常如此），它通常会提高一点效率，但会导致后期软件充满bug，无法维护&rdquo;
+<a href="https://www.wikiwand.com/en/Jon_Bentley_(computer_scientist)">Jon Bentley (computer scientist) - Wikiwand</a>
+</p>
+</blockquote>
+
+<ul class="org-ul">
+<li>在个人计算机掀起的时代潮流中，这种对性能的极致追求常常迷失了方向。</li>
+<li>C语言的设计者竭尽全力确保该语言不会给性能带来任何障碍。C语言被描述为给汇编语言做了一层薄薄的包装。这可能是一种恭维，也是一种嘲讽。它适合软件从大型机到PC上的过度。一旦该软件的复杂性超过了DONKEY，这种过度就会变得困难起来。
+
+<ul class="org-ul">
+<li>C语言强迫你不分青红皂白的提高性能。</li>
+<li>整数溢出问题，BASIC会抛出错误并中止。C语言中这些细节直接向程序员公开。
+
+<ul class="org-ul">
+<li>20世纪80年代，放射治疗仪溢出bug，过量辐射导致三人死亡</li>
+<li>1996年 Ariane 5 号火箭坠毁</li>
+</ul></li>
+
+<li>数组越界问题</li>
+<li>C语言的最后一个技巧是基于三个思想给出处理字符串的巧妙方法，显式的声明不同大小的数组，避免数组查找开销，使用数组/指针的等价行动态分配数组。
+
+<ul class="org-ul">
+<li>字符串问题，程序员必须做大量的加减1运算</li>
+<li>字符串操作所做的权衡完美的提现了C的核心：它消除任何不必要的性能开销，同时也消除了自动保护。</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org4320c09" class="outline-2">
+<h2 id="org4320c09">做正确的软件</h2>
+<div class="outline-text-2" id="text-org4320c09">
+<ul class="org-ul">
+<li>1968年北约会议，推广了 &ldquo;软件危机&rdquo; 这个术语，会议报告中列出了到今天仍困扰我们的问题：可靠性、管理、调度和测试等。理论家和实践者之间开始分裂。</li>
+<li>直到今天，软件工程中的问题仍然要么直接与Bug（可靠性和测试）有关，要么与Bug的不可预测性处理（管理和调度）有关。</li>
+<li>缺陷（defect）、故障（fault）、失败（failure）</li>
+<li>不是每一个缺陷都会引发故障，但每个故障都是由一个缺陷引起的。</li>
+<li>软件Bug的复现步骤通常是通过失败（用户可见的问题）来报告的。调试过程分为两个部分，查找故障（计算机内存中的错误值），并通过它来追踪缺陷（代码错误）。</li>
+<li>一般来说失败分为崩溃，挂起，明显的错误行为。</li>
+<li>当人们说”大程序不可避免地会有Bug“，并不是在表达像”汽车不可避免的会发生事故“的意思。他们所指的是”我们没有合适的软件工程技术来根除所有的缺陷，所以我们不会试图将他们全部清除，我们也不会改进技术“。</li>
+<li>然而，即使你最终没能达到完美的目标，以完美目标去努力仍然可以让你收获良多。*约定俗成的对粗制滥造软件的接受是软件工程中最令人蒙羞的一面。*</li>
+<li>早期的软件确实强调如何生成完全无Bug的软件。
+<ul class="org-ul">
+<li><p>
+&lt;&gt; <a href="https://book.douban.com/subject/3679197/">Structured Programming (豆瓣)</a> 1972-2-11 作者来自学术界
+</p>
+<blockquote>
+<p>
+我们编写和教授程序设计的方式正在发生一场革命。&#x2026;
+阅读最近出版的《结构化程序设计》一书必将改变你的生活。
+&#x2013; :Knuth:
+</p>
+</blockquote></li>
+
+<li><a href="https://www.amazon.com/Structured-Programming-Practice-programming-1979-03-30/dp/B01K2OF8JQ">Structured Programming: Theory and Practice (The Systems programming series) by Richard C. Linger (1979-03-30): Richard C. Linger: Amazon.com: Books</a> 作者来自IBM</li>
+</ul></li>
+
+<li>&ldquo;学好程序设计的方法是反复观察如何通过应用一些良好实践原则和常识改进真实的应用程序&rdquo;
+<a href="link_generated_on_download">The Elements of Programming Style</a></li>
+<li>关于测试
+
+<ul class="org-ul">
+<li>&ldquo;在大学里完成的软件项目通常不必由他人来维护，使用或测试&rdquo;
+<a href="link_generated_on_download">程序开发心理学</a></li>
+<li><b>Dijkstra</b> 提倡预先证明而不是事后测试。1968年 ~ 测试是 ”一种非常低效的说服自己程序的程序正确性的方法“， 1969 ”测试程序可以显示错误的存在，但决不能显示他们的不存在“</li>
+<li><b>Mills</b> 众所周知，软件系统不能通过测试变得可靠。</li>
+<li><b>Kaner</b> 你不能完整的测试一个程序，验证程序正确工作不是测试的目的
+
+<ul class="org-ul">
+<li>一个发现了问题的测试是成功的，没有发现问题的测试是浪费实践</li>
+<li>通过专注于发现错误，将”测试人员说软件是好的“的观念转变为”测试人员说他们找不到其他错误“，前者意味着如果事实证明软件不好，他们应该受到指责，而后者意味着我们都难以免责。</li>
+</ul></li>
+
+<li><b>Myers</b>
+你永远不会在程序中发现最后一个Bug，即使你发现了一个Bug，你也不知道是不是最后一个
+
+<ul class="org-ul">
+<li>正如许多房主所指，拆除墙纸并不容易，但如果当初贴墙纸的人是你而不是他人，那么这个令人沮丧的过程几乎是难以忍受的。因此，大多数程序员无法有效的测试自己的程序，因为他们不能使自己拥有想要暴露错误的的必要心态</li>
+</ul></li>
+
+<li>90年微软”测试人员负责“的概念得到了充分的实施。不幸的是由此出现的是”把它扔到隔壁“的文化。
+
+<ul class="org-ul">
+<li>代码完成被视为”在发现任何bug之前，开发人员的工作已经完成，如果发布的软件带有bug，那么测试人员要为没有找到bug负责。“</li>
+<li>NT系统里，由于测试人员找不到实践来测试该代码的功能而被舍弃，”好吧，现在测试人员正在重新设计我们的软件，我们将删除这个功能。“</li>
+</ul></li>
+
+<li>测试人员防止狡猾的开发人员试图让程序Bug从他们身边溜过，这种感觉常常导致开发人员和测试人员之间的对立态度。</li>
+<li>不幸的是，”测试人员的工作是发现Bug“的信息将Bug数量作为测试人员工作成效的度量，这导致测试人员在查找bug时有时倾向于数量而不是质量，将一些模糊的情况归档为Bug</li>
+</ul></li>
+
+<li>最终观念从测试人员的”测试“质量回到了程序员应有的”设计“质量。</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orga01ffaa" class="outline-2">
+<h2 id="orga01ffaa">面向对象</h2>
+<div class="outline-text-2" id="text-orga01ffaa">
+<ul class="org-ul">
+<li>五金店物品摆设，你的购物体验可以随着商店的布局变化得到一些改善或恶化，但在更大的场景中，困难的部分在于列出你所需要的部件，并真正作出一把好椅子，而这部份工作是不变的。</li>
+<li>过程式程序语言，尽管数据结构和算法之间存在明显的逻辑联系，但它们往往在源代码中是分离的：数据结构在顶层附近定义，算法的实现在底层，或者存放在独立的文件中。</li>
+<li>20世纪60年代开始，将数据结构和处理该数据结构的代码组织在一起的想法就出现了，组织在一起的构件被成为类。</li>
+<li>Simula 第一个引入类，20世纪60年代，Ole-Johan Dahl. Simula
+首次出现时，对象机制被视为一种符号上的便利，而不是软件编写方式的重大突破。</li>
+<li>将面向对象程序设计普及的语言是C++。给出new函数，提出了constructor术语。使用derived class 和 base class的术语。members。所有类成员默认是私有的。</li>
+<li>David Parnas
+第一个撰写了关于”信息隐藏“的论文，他将其称为抽象：不同模块不需要知道彼此的数据结构的内部细节，这种思想可以使模块更加健壮。
+&ldquo;正是在相对独立的模块之间建立了几乎不可见的链接的信息分布使的系统变得‘肮脏&rsquo;&rdquo;
+&ldquo;对它的接口或定义的选择要尽可能少地暴露它的内部工作&rdquo;</li>
+<li>Smalltalk
+C++设计时没有作为主要参考。不是调用方法，而是向对象发送消息，该对象可能会选择调用方法进行处理（因此方法属于类的内部实现细节，而不是公有接口。这种设计的另一个效果是所有类成员都必须是私有的）。</li>
+<li>Smalltalk
+从来没有像C++那样进入主流，这是可以理解的，因为它的语法对任何熟悉Algol-Pascal-C语言系列的人（几乎是每个人）来说都是很特别的。</li>
+<li>早期的语言都是在大学里发明的，后来进入一个语言诞生于实验室的时代，这些语言更多是为了支持公司的业务而设计的，不是最终目的，只是副产品。80年代开始出现由公司设计的语言。OC，Eiffel。</li>
+<li>Mayer
+&ldquo;在设计系统的时候，设计者面临着一个基本的选择：架构应该基于操作还是基于数据？对这个问题的回答包含了传统设计方法和面向对象方法之间的差异&rdquo;
+他将自顶向下的方法称为旧方法，他认为这往往会将软件锁定到某个特定的功能中，使得在用户需求发生变化时难以对软件修改，并且阻碍了代码的可重用性。
+&ldquo;不要先问系统的功能是什么，而是先问功能用在什么上面&rdquo;
+在他看来，面向对象的设计不需要语言支持。</li>
+<li>试图将摩尔定律应用于软件的做法被证明是不可能的，但它确实推动了一些很好的研究。
+&ldquo;反常的并不是软件进步如此之慢，而是计算机硬件的进步如此之快。&rdquo;</li>
+<li>LoD
+&ldquo;我们已经看到这是需要付出代价的。数据隐藏的级别越高，由此带来的惩罚就越大，包括方法的数量，执行速度，方法参数已经某些代码的可读性&rdquo;
+作者建议做进一步研究</li>
+<li>&ldquo;关于面向对象设计(OOD)，一个广为接受的观点是，它允许设计人员直接建模问题域的实体和结构。&#x2026;&#x2026;这在本质上是一个心理学的主张，具有心理层面的后果：一种更直接地捕捉现实世界的设计方法应该能够简化人们从问题映射到解决方案的认知过程，并且，它应该能够帮助人们得到在问题领域更易于理解的设计解决方案。然而，令人惊讶的是，关于这种说法的心理分析并不存在&rdquo;</li>
+<li>&ldquo;虽然对许多软件工程的基本假设几乎没有或根本没有经过实证检验，但是，科学实验的必要性是明确的。&#x2026;&#x2026;使用精确的，可重复的实验来验证任何命题是成熟的科学或工程学科的标志。在许多情况下，软件工程师所做的声明是没有依据的，因为它们本身就很难被验证，或者因为这些声明本身的直观性忽略了科学验证的必要性&rdquo;
+
+<ul class="org-ul">
+<li>1991 &lt;&gt; John Lewis, Sallie Henry, Dennis Kufara, Robert Schulman</li>
+<li>该研究包括一项精心设计的实验，以学生为测试对象，比较过程式和面向对象语言之间的代码重用性。有一个对照组，平衡了不同组学生的技能。他们得出的结论是，面向对象语言比过程式语言更能提高代码的重用性。鉴于使用的语言是C++和Pascal，不算一场公平的竞赛。</li>
+</ul></li>
+
+<li>&ldquo;如今，软件工程领域典型的会议论文集包含了许多如以下格式撰写的论文。如何使用（首字母缩写）测试，并且能够找到比现有工具更好的。&rdquo;</li>
+<li>由于每个软件项目都是独一无二的，并且问题往往随着程序员群体的变化或软件的发展而出现，因此成功的完成一个项目并不能说明所选择的方法和语言是最好的。</li>
+<li><b>许多程序员都是自学的，他们习惯于将自己的经验视为判断一个想法是否有价值的所有证据。</b> 就拿调用他人定义的API的代码来说，这就像五金店的重新设计：如果你的任务符合设计师的想法，那么一切都将很顺利，如果不符合，你的工作就会变得困难重重</li>
+
+<li>将面向对象程序设计普及的语言是C++。给出new函数，提出了constructor术语。使用derived class 和 base class的术语。members。所有类成员默认是私有的。</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org6a085fd" class="outline-2">
+<h2 id="org6a085fd">设计思维</h2>
+<div class="outline-text-2" id="text-org6a085fd">
+<ul class="org-ul">
+<li>程序员可能用各种方式过度使用像继承这样的酷炫新功能</li>
+<li>设计模式，&#x2026;&#x2026;与其说是革命性的，不如说是明显的。</li>
+<li>程序员和其他人一样，在短期记忆中可以记住的内容是有限的。使用设计模式的名称可以将一组类折叠成一个模式，这为其他想法留出了更多的大脑空间。最明显的好处是关于代码细节的文档和沟通，而非更好的设计。</li>
+<li>设计模式是有用的，但将它们当成解决所有设计问题的万金油则是轻率的。</li>
+<li>Eric Gamma
+”更多的模式总是使系统变得更好“的错误观念时写道，”模式使系统容易变得更复杂，它们通过引入间接级别来实现灵活性和可变性，这会使设计复杂化。最好从简设计，根据需要进行设计改进“</li>
+<li>策虑模式很优雅，但是真正的设计问题-那些决定了软件是否崩溃，是否流畅允许或是否会被攻击-是离设计模式很远的。设计模式是以事实的形式呈现，没有任何研究支持他们的好处。</li>
+<li>设计模式的许多优点与未来的可扩展性有关。幸运的是，模式出现的同时，另一个好主意渗入了程序设计世界，确保所有代码都需要第二个东西，单元测试。</li>
+<li>历史上一些著名的Bug体现了单元测试的重要性。
+<a href="link_generated_on_download">zune 播放器的bug https://img30.360buyimg.com/ebookadmin/jfs/t1/89853/14/4288/44671/5de60fa3E4f3f0c70/ea09a90691b50491.jpg</a></li>
+<li>单元测试并不完美，为一个方法编写一个单元测试并不能保证这个方法在所有情况下都能工作。即使代码覆盖率达到100%，也不能保证代码完全正确。</li>
+<li>虽然代码覆盖率不能保证代码没有缺陷，但是单元测试是防止代码变糟的一种好办法。</li>
+<li>单元测试可以防止软件过时。软件开发一个不幸的事实是，即使完全不修改代码，程序仍然可能会失效。</li>
+<li>单元测试是一个好主意，可以说，*作为程序员，不编写单元测试是不称职的。*</li>
+<li>单元测试最大的障碍是许多软件在编写的时候没有考虑到它们。后期添加单元测试就成为一座需要攀登的高山，要冒着破坏代码的风险（一个真正具有讽刺意味的结果）。</li>
+<li>《修改代码的艺术》，在修改任何代码之前，你需要准备好单元测试。单元测试的一般概念已经存在一段时间了，但是”单元测试是程序员交付内容的核心部份“这一概念在过去大约十年之间才得以强化。</li>
+<li>如果结构化程序设计的追求最终归结为”不要使用GOTO语句“，那么这仍然是一个有价值的结果。如果设计模式的主要贡献是使代码易于进行单元测试，那么这也是值得的。</li>
+<li>软件架构师提出软件设计，然后把它交给其他人来实现。架构师在学校学习建筑，他们不是工作了一段时间而且没有过失记录的建筑工人，但这是你成为一名软件架构师的途径。软件架构师和所有的程序员一样，都依赖于”我用这种方式试过一次，结果还不错“的方法。</li>
+<li>伟大的思想家思考问题时，他们开始寻找模式。发送文件，发送网页请求，对象调用，都是发送操作。这些聪明的思想家发明了一种新的更高的更广泛的抽象概念，称为消息传递。但现在这个描述变得非常宽泛了，没有人真正知道这个描述具体在说什么。
+&ldquo;这是你被一个架构宇航员袭击的确切情报：难以置信的夸大其词，英雄般的乌托邦式的浮夸，自夸，完全脱离现实。但人们买账！商业媒体也疯狂！&rdquo;</li>
+<li>对只关心架构的架构师来说，常用的方法是要求他们编写交付给客户的产品代码。尽管人们会抱怨建筑设计师的设计，但从来没停说过只是为了确保他们的建筑是正常的，就偶尔让他们吊装石棉水泥板。</li>
+<li>软件架构师这一角色存在的基础是设计有“好的”和“差的”之分的理念，而架构师则会选择好的设计而非差的设计。</li>
+<li>在设计模式之外，由于缺少严格的理论支持，好的设计是什么样的，这是一个模糊的领域。
+
+<ul class="org-ul">
+<li>软件设计具有与其他工程设计学科不同的特点。首先，设计师通常必须探索他们以前没有经验的新应用和新技术领域。因此，他们的设计成果的质量可能并不稳定。其次，设计是一个抽象的模型，通常在实现之前都不容易客观的判断它是否能真的工作。</li>
+</ul></li>
+
+<li>&ldquo;我们将因无法以绝对尺度衡量程序的好坏而收到阻碍&rdquo;
+<a href="link_generated_on_download">程序开发心理学</a>
+
+<ul class="org-ul">
+<li>由于程序每次都是“从头开始”设计的，所以我们很容易理解为什么新程序和先有程序略有不同，两个程序也因此无法直接比较。当然由于无法衡量程序的优劣，自然也很难衡量程序员的优劣，由其难以衡量这两个领域中的任何一个的进展，而这正式这些年来我们所希望软件工程能取得的进展。</li>
+</ul></li>
+
+<li><b>好的设计还有另一个真相：它常常与高性能的设计背道而驰。</b> 考虑到当今许多程序员对性能的关注，人们很难做出好的设计。</li>
+<li><b>费舍尔基本定理(R.A.Fisher) 适应性不是免费的，系统越适合特定环境，它对新环境的适应性越差。</b></li>
+<li>性能问题可以在任何规模的程序中观察到，任何改进都可以被衡量，从而对心理产生积极的影响。另一方面，当参与到人多工作时间长的大型项目中时，好的设计才显得重要。</li>
+<li>一些著名的软件问题便是由性能和设计的权衡引起的。</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org0d1585a" class="outline-2">
+<h2 id="org0d1585a">你最爱的程序设计语言</h2>
+<div class="outline-text-2" id="text-org0d1585a">
+<ul class="org-ul">
+<li>信任网络数据的错误</li>
+<li>错误处理</li>
+<li>如今程序员有比以往任何时候都多的语言可以选择，但是对于如何选择却没有太多的指导，因此他们倾向于继续使用以前使用过的。</li>
+<li>过去数十年里创造了许多新语言，但常常与特定的操作系统绑定在一起。其必然结果是会变得过时。</li>
+<li>最近流行的语言都保持不变，C/C++/Java。另一个事实是流行的操作系统也已经存在并流行了很长一段时间。</li>
+<li>&ldquo;程序设计语言设计通常被在很大程度上甚至完全被认为是一个见仁见智的问题。在这一问题的研究上，很少有统一的组织原则，也没有公认的事实。&#x2026;
+都与语言的相对优缺点，人们一直争论不休，但似乎总是争论不出一个结果。有些人甚至认为所有语言都是等价的，唯一的区别在于开发者的个人品味。然而，程序设计语言显然是很重要的！程序设计语言理论将我们从个人喜好的焦油坑中解放出来，并把我们的讨论提升到体面的学术范畴。&rdquo;
+<ul class="org-ul">
+<li><a href="http://www.cs.cmu.edu/~rwh/">Robert Harper&rsquo;s Home Page</a> <a href="https://www.wikiwand.com/en/Robert_Harper_(computer_scientist)">Robert Harper (computer scientist) - Wikiwand</a> &lt;&gt;</li>
+</ul></li>
+
+<li><b>学会使用合适的程序设计语言能像软件的其他领域一样带来相同的效果</b>
+
+<ul class="org-ul">
+<li>自学的程序员认为他们所掌握的知识足够好，而不会去尝试学习新的知识。如果他们基于过去经验找到了一门最喜欢的语言，那么他们将一直使用它，因为他们看不到任何主动改变的理由。</li>
+<li>Rob Pike
+将C语言描述为荒岛语言，『C语言虽然已经是一门诞生很久的语言了，但它仍然出人意料的优雅』</li>
+<li>然而，工业界需要理解，C语言能获得如今的地位是源于一个偶然的事件：当那些自学成才，追求性能的程序员离开大学以后，他们恰好发现了C语言，然后再也没有重新评估过他们一直在试用的C语言是否适合所有任务。</li>
+<li>&ldquo;程序设计风格是在一系列约束下编写程序的结果，约束可以是来自外部的，也可以是自我加强的。他们可以反映来自环境的真正挑战，也可以是人工的产物；它们可以来自过往的经验以及可测量的数据，也可以来自个人喜好。&rdquo;
+Cristina Lopes (Exercises in Programming Style)</li>
+<li>&ldquo;『小语言』经常出现在软件系统中，命令，脚本，配置，标记语言等。程序设计中的基本原则在这些语言中尝尝被忽略，&#x2026;&#x2026;很多语言面世时只是一门『小语言』，它后来可能会发展成一门『大语言』&rdquo;
+Robert Harper</li>
+<li>2008 软件工程简史 Wirth</li>
+<li>语言设计的工作从学术界转移到企业研究院，接着还降转移到企业业务部门，通过为其他程序员定义一个平台，这已经成为公司战略的一部分。</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org0c5998e" class="outline-2">
+<h2 id="org0c5998e">敏捷开发</h2>
+<div class="outline-text-2" id="text-org0c5998e">
+</div>
+<div id="outline-container-org160a60a" class="outline-3">
+<h3 id="org160a60a">2001年2月 17个人 犹他州 敏捷宣言</h3>
+<div class="outline-text-3" id="text-org160a60a">
+<ul class="org-ul">
+<li>共同的敌人是软件开发方法论，统一软件开发过程（Rational Unified Process）和软件能力成熟度集成模型（Capability Maturity Model）。</li>
+<li>他们曾经相互交流，但努力推进的却不是同一个思想。如何更好的给出软件规格说明书；更好的软件估时方法；更好的软件设计方法；更好地编写软件的方法；更好的协调工作的方法。</li>
+<li>敏捷宣言我们一直在实践中探寻更好的软件开发方法，身体力行的同时也帮助他人。由此我们建立了如下价值观：
+
+<ul class="org-ul">
+<li>个体和互动高于流程和工具</li>
+<li>工作的软件高于详尽的文档</li>
+<li>客户合作高于合同谈判</li>
+<li>响应变化高于遵循计划</li>
+</ul></li>
+
+<li>也就是说，尽管右项有其价值，但我们更重视左项的价值。</li>
+<li>这个口号意味着团队要与不断进步的软件开发框架保持一致。敏捷已经渗透到软件工程之外的领域了</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgeb4d274" class="outline-3">
+<h3 id="orgeb4d274">Scrum 是敏捷领域中最著名的技术。</h3>
+<div class="outline-text-3" id="text-orgeb4d274">
+<ul class="org-ul">
+<li>1995年 OOPSLA Ken Schwaber 和 Jeff Sutherland 提出</li>
+<li>Scrum的核心是映射到软件项目管理上的敏捷宣言。
+
+<ul class="org-ul">
+<li>每天简短的会面沟通（个体和互动高于流程和工具）</li>
+<li>不断以小增量的形式渐进式地交付新特性（工作地软件高于详尽地文档）</li>
+<li>依靠反馈来确定下一步做什么，而不是等全部代码完成之后才能交付（客户合作高于合同谈判）</li>
+<li>了解客户动态变化地需求，并视次为对产品地积极反馈，而非抱怨（响应变化高于遵循计划）</li>
+</ul></li>
+
+<li>*Scrum是关于如何管理软件项目地，而不是关于如何编写代码地。『*一套流程框架』</li>
+<li>Scrum 背后隐藏的事实是没有用于开发软件的可靠流程或技术，但是这并不是什么大问题。
+&ldquo;即使无法定义一个流程，这个流程仍然可以被控制。&rdquo;</li>
+<li>Brooks 提到增量式垂直切片代替瀑布模型的同时，Scrum 出现在 OOPSLA 会议上</li>
+<li>新系统将要求使用紧密耦合的开发方式构建松耦合，可重用，即插即用的组件，该方法结合了业务流程重建，分析，设计，实现和可重用的组件市场交付系统，类似于当今的定制IC芯片行业。</li>
+<li>&ldquo;系统开发的工人理念是，系统开发过程是一种可以被计划，估计和成功完成的方法。然而，这是错误的理解。&rdquo; 过去没有&ldquo;紧密耦合的开发方法&rdquo;，现在也不会有这样的方法</li>
+<li>&ldquo;Scrum指出，系统开发是一个不可预测的，复杂的过程，并只能被粗略地描述为一个整体过程。Scrum 将系统开发过程定义为一组松散的活动，这些活动将结合已知的，可操作的工具与技术和开发团队为构建系统而设计的最佳工具和技术。由于这些活动比较松散，所以人们需要某些控制措施来管理开发过程和固有风险。&rdquo;</li>
+<li>Scrum 明确地反对”小瀑布“的冲刺方法</li>
+<li>OOPSLA会议上原始的Scrum论文指出，“Scrum关注现有产品的管理，增强和维护，同时利用新管理技术和前文所述的公理。Scrum并不关心全新的系统开发工作或重新设计的系统开发工作。”当2002年第一本关于Scrum的书出版时，这个区别消失了，Scrum被认为同时适用于全新的项目以及正在开发中的项目。</li>
+<li>这篇论文阐述了另一个公理：
+&ldquo;面向对象环境中的产品开发需要一个高度灵活的，适应性强的开发流程。面向对象技术提供了Scrum方法的论的基础。对象或产品特性提供了一个离散且抑郁管理的环境。面向过程程序设计的代码有许多相互纠缠的接口，它并不适合Scrum方法论。&rdquo;</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org14a5e15" class="outline-3">
+<h3 id="org14a5e15">瀑布模型</h3>
+<div class="outline-text-3" id="text-org14a5e15">
+<ul class="org-ul">
+<li>Brooks 人月神话 1/3 用于计划，1/6 用于编码，1/4 组件测试和早期系统测试，1/4 系统测试。无论你是否为测试留出足够的实践，测试必然会占用相当一部分实践。</li>
+<li>这个计划隐含了单向开发模型，计划，编码，组件测试，系统测试。</li>
+<li>1995年 二十周年纪念版 Brooks指出，瀑布模型是错误的</li>
+<li>《计划舍弃一个版本》，主张建立一个『实验系统』。20年后改变了他的想法，他早先的建议默认使用了瀑布模型的事实。 &ldquo;瀑布模型的思想从第二章中的规划建议开始，就贯穿了整本书。瀑布模型的基本谬误在于它假设一个项目只经历一次开发过程&rdquo;
+
+<ul class="org-ul">
+<li>瀑布模型假定所有错误都是在实现的过程中，因此错误的修复可以顺畅地穿插在组件测试和系统测试的过程中。</li>
+<li>&ldquo;我后来转向了增量式开发的教学，我常常被第一个运行系统和屏幕上第一幅图案对士气的激励效应所震惊。&rdquo;</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org5a0c0bb" class="outline-3">
+<h3 id="org5a0c0bb">极限编程（Extreme Programming）</h3>
+<div class="outline-text-3" id="text-org5a0c0bb">
+<ul class="org-ul">
+<li>基于一套围绕规划，管理，设计，编码和测试规则。其中规划和管理部分类似Scrum。设计编码和测试阶段的指导涉及软件应该如何工程化的细节，Scrum忽略了这些细节。这种方法的关键是编写单元测试，并确保经常运行，发现bug时编写新的单元测试。</li>
+<li>结对编程</li>
+<li>XP试图避免宗教式的争论。要求遵守一种编码规范，争论至多只能发生一次，随后不再纠缠于这些细节。代码不需要针对未来的变化保持灵活性。YAGNI。</li>
+<li>Scrum和XP都是针对小团队的</li>
+<li>如果生产效率是基于“人均交付代码量”来衡量，那么小团队的生产效率高于大团队这句话是难以反驳的。</li>
+<li>但是认为小团队比更大规模的团队产出更多的软件是有误导性的观点。</li>
+<li>功能驱动，确定一组计划开发的功能，然后不断推进，指导所有功能可用，不能按期实现就延期交付。</li>
+<li>日期驱动，团队设置一个具体的日期，聚焦于能在次日期前完成的功能。</li>
+</ul>
+<ul class="org-ul">
+<li>瀑布模型仔细地计划项目项目的每一个细节并试图预测项目地完成日期，Scrum指出团队将在各个部分勤奋工作，并按照挣得顺序，始终在每个冲刺结束时想用户交付可以正常工作地代码。</li>
+<li>为了防止长期计划的失败，敏捷方法地方案是避免做出长期计划。</li>
+<li>这些方法并不能改变软件工程师不擅长估计开发进度地事实。他们只会尽量缩短估计，因此即使开发进度延后了，按照百分比来看也不像从日历上看到地那样差。</li>
+<li>敏捷地支持者准确地指出，如果一个团队团结在一起，并从事类似地工作，那么它在开发进度估计方面会做得更好&#x2013;不过，这不是什么新闻，也不是敏捷所独有的有点。</li>
+<li>&ldquo;我比这个人更聪明。很可能我们两个人都是无知地，但他无知却自认为有知，而我无知时不认为有知。所以从我认为自己确实不懂我不懂得地东西这个意义上说，我可能比他更聪明。&rdquo;
+&ldquo;优秀地工匠似乎和诗人犯了同样地错误：诗人和工匠，由于自己艺伎地成功，都认为自己无所不能，这种狂妄反而掩盖了他们地智慧。&rdquo;
+柏拉图 《道歉》 苏格拉底$ $ #Qoute #苏格拉底</li>
+<li>从这个意义上，认为软件项目本质上是不可控地Scrum比瀑布模型更聪明，而瀑布模型却在不知道如何控制它们地情况下提出控制它们。</li>
+<li>瀑布模型并不是敏捷开发的真正对立地方法。真正对立地应该是个人软件开发（Personal Software Process，PSP）和团队软件过程（Team Software Process，TSP）。</li>
+<li>一般的敏捷开发及特殊的Scrum都是乐观的：假定开发进展顺利，信任你的团队，并在需要时修复流程。PSP和其他命令-控制式技术则是悲观的：除非花大量时间来预防问题，否则事情会变得糟糕。</li>
+<li>敏捷开发正确地认识到，考虑到我们目前的评估技术和软件工程技术，预估软件项目的耗时是一件愚蠢的事情。</li>
+<li>&ldquo;事实上，软件评估的误差一开始是很大的，但随着你对如何实现做了越来越多的调查，误差将逐渐缩小，并且在编码开始之后，误差将进一步缩小&rdquo;
+Steve McConnel</li>
+<li>&ldquo;似乎存在一种神秘的启动仪式，几乎每个团队的成员都用某种方式参与了这个仪式。老手用来描述这个仪式的词是”签约“。签约意味着你统一为项目成功做任何必要的事情。从管理者角度来看，仪式的实用价值是多方面的。劳动不再是强迫性的，而是自愿的。&rdquo;
+Tracy Kidder 《新机器的灵魂》(The Sourl of a New Machine)</li>
+<li>2000年的一项针对高科技公司的研究中提到了这种情况，在这种情况下，员工会自我施加工作压力，而人们通常认为这种压力来自他们的经理。这是”竞争性自我管理“的一部分。这种压力会”施加在工程师身上，让他们对职业竞争力产生强烈的焦虑“。
+Ofer Sharone</li>
+<li>Scrum和XP很清楚，估计的时间只能用于冲刺，它并不具有约束力。</li>
+<li>工程师并没有被疯狂的工作吓倒，反而想参与这样一个项目。不仅仅是荣耀和骄傲。考虑倒交付的紧迫性，许诺给程序员极大的自由，可以不顾开发过程中的任何规则和管理。敏捷开发向程序员许诺了同样的自由。</li>
+<li>疯狂工作是一项伟大的事业，但当这样的故事发生在软件开发上时，疯狂的工作只会产出仓促且质量低下的代码。特别是，草率处理某些错误案例非常具有诱惑力。</li>
+<li><b>只提供短期预估而不让程序员陷入困境的敏捷方法显然比这种长期预估的方法要好得多。然而，如果你退后一步，你会发现敏捷开发掩盖了一个更加根本的问题。Scrum并不是一种渐进式的软件项目管理方法，它是对当前软件开发状态的一种逻辑反应，这种反应试图通过避免为客户过度承诺来控制成本。</b>
+
+<ul class="org-ul">
+<li>瀑布项目反应了工程项目的工作方式，这是”真正的“工程项目应该达到的目标，因为在理想状态下，你对项目有足够多的了解，还根据以往的经验准确地安排工作。</li>
+<li>”响应高于遵循计划“是”不要期望我能够提前预测我将要完成什么“的另一种表达，而这是当前的现实。</li>
+<li>虽然有些代码是由于客户不喜欢而修改，但大部分情况下是因为你意识倒内部实现细节需要重写&#x2013;而且你无法提前意识倒你正走在错误的道路上。</li>
+<li>这些原因使得软件开发变得不可预测。</li>
+<li>读了关于Scrum，产品交付表和燃尽图的书籍会想，”虽然我对软件一无所知，但我知道这些事情是有意义的“。这种感觉说明了Scrum没有任何对于如何设计软件的说明，它专注的是通过快速迭代获得客户反馈。</li>
+<li>敏捷开发承认了程序设计的一个重要事实：代码会被大量阅读。
+
+<ul class="org-ul">
+<li>经典的瀑布模型程序设计中，目标是为整个系统编写代码并在完成后交付给测试。如果发现了bug，程序员便要经历修改代码的痛苦，但如果再也不去查看它，也被认为是正常的，甚至是积极的迹象。</li>
+<li>敏捷开发的重点是在YAGNI的指导思想下渐进式的交付代码，而且认可代码最终将被修改。</li>
+<li>最极端的基于重构的敏捷方法被成为测试驱动开发。</li>
+</ul></li>
+</ul></li>
+
+<li>对敏捷开发最关心的问题是，它目前主导着程序设计方法论的讨论，却只涵盖了软件工程师可能遇到的一小部分问题。尽管如此，敏捷开发仍被高调定位为程序设计项目的救世主。</li>
+<li>软件思想源头的转变：大学&#x2013;&gt;企业实验室&#x2013;&gt;企业产品。它的发明者最初是程序员，但很快转变成咨询顾问，而且提供的产品就是敏捷开发知识本身。 <b>敏捷开发并不是建立在任何研究或经验观察基础之上的。</b></li>
+<li>学术界与敏捷开发几乎没有任何关系。凭借其全新的术语和过度夸大的承诺，敏捷开发被视为一种时尚，而大学恰恰希望避免这种时尚。</li>
+<li>《梦断代码》团队有点不正常。许多成员都被以前的成功冲昏了头脑，他们无法区分之前取得成功的因素中哪些是重要的，哪些是错误的。</li>
+<li>最新的敏捷方法之一是软件工程方法和理论（Software Engineering Methods and Theory，SEMAT）。当今的软件工程被不成熟的实践严重束缚：
+
+<ul class="org-ul">
+<li>时尚的广泛流行更像典型的时装产业而不是典型的工程学科</li>
+<li>缺乏一个健全的，被广泛接受的理论基础</li>
+<li>大量的方法和方法的变体，其差别尚未被理解而且被人为夸大了</li>
+<li>缺乏可靠的实验评估和验证</li>
+<li>业界实践和学术研究之间的分离</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgae66884" class="outline-2">
+<h2 id="orgae66884">黄金时代</h2>
+<div class="outline-text-2" id="text-orgae66884">
+<ul class="org-ul">
+<li>20世纪70年代，处于软件工程研究的繁荣时期。</li>
+<li>那个时代的研究并没有过时，根本问题并没有改变。人们仍然需要学习程序设计，编写了很多代码，但是难以集成，调试仍然困难，新程序员仍然不理解旧代码。</li>
+<li>不同的是，当时学术界和工业界一群人试图采取系统的方法找出软件工程的问题并尝试解决。软件工程这一术语出现后没多久，人们依然在用其他工程学科的研究方法研究这一学科。</li>
+<li>Brooks Dijkstra
+他们写的关于软件的内容有多少仍然是有用的，而且以后仍然有用，对此毫不知情。那些忽视历史的人，正如他们所说，注定重蹈覆辙。如果认真读过《人月神话》，就会记得写到了文档，通信，团队角色，评估困难，团队的可扩展性，代码注释和代码总量的成本，这些都是工业界一直在努力解决的问题。</li>
+<li>Mills 《软件生产力》（Software Productivity）论文集
+1968年~1981年。那时起几乎所有关于软件的争论：不同角色，如何设计，如何测试，如何调试，单元测试，文档。</li>
+<li>你想解决那些把软件开发搅成浑水的无止境的派别争论吗？既然所有派别都声明了各自的优点，那为什么不让两组人用不同的风格编写代码，看看它们如何影响对代码的初始理解，修改的难易程度和代码的可维护性？</li>
+<li>流程图的问题是，它们对程序理解的复杂部分没有帮助。在阅读IF语句时，问题不在于意识倒代码中存在IF语句，而在于IF逻辑是否正确，对于这一问题，直接阅读代码和流程图是一样的。</li>
+<li>在计算机科学专业出现之前，第一批计算机教授都拥有数学博士学位。数学家虽然有着独立思考深层次问题的名声，但他们非常富有合作精神，而且会花很多时间交流思想，几乎总是在前人工作的基础上建立自己的工作。</li>
+<li>此外当软件首次成为一种可以被出售给客户的产品时，编写软件的公司还是硬件公司。</li>
+<li>在设计硬件时，一家公司时在从事真正的工程：电气工程积累了关于电路设计，散热和功率以及其他问题的知识，这些问题都不能用”我上次时这样解决的“方法来解决。公司必须同时依靠来自学术界和工业界的科学研究。此外硬件设计不能轻松进行后期修改，隐藏预先设计是值得的。</li>
+<li>硬件公司可能会用同样严格的方法处理软件问题。</li>
+<li>可以理解的是，早期的软件工程是由学术界的数学家和工业界的硬件公司共同推动的，并开始沿着其他工程学科所走过的道路发展，可以在当时的文献中看到这一过程。1975的观察员有合理的信心认为这一趋势将继续下去，并且在几十年内，问题将得到解决。*结果不是这样，到底发生了什么？*</li>
+<li>温伯格（Weinberg）提出了由终端出现引起变化的理论。早期的软件开发需要提前花费更多的时间来确保程序能够正确运行，因为运行开销要大的多。</li>
+<li>另一个正在发芽的种子也影响了软件的发展。1968年的北约会议诞生了”软件工程“一词，以及学术界和工业界之间达成的合作协议而被人们铭记。然而第二年的会议并没有以同样的方式结束。
+
+<ul class="org-ul">
+<li>&ldquo;加米什会议以参会者的兴趣范围之广和专业经验之代表性而闻名。事实上，从象牙塔的学者到参与真正大规模软件项目的一线开发人员，参会者覆盖了所有软件工程从业人员。绝大多数与会者对于当时软件开发领域，或者过早地被称为“软件工程”的领域所面临问题的困难程度和严重性达成了广泛的共识。&#x2026;&#x2026;&rdquo;</li>
+<li>&ldquo;罗马会议组织者的意图是，应该对技术问题进行更详细的研究，而不是将加米什会议上广泛关注的管理问题也包括在内。不过，会议再一次有意识地成功吸引了同样广泛的参会者。这次会议与它的前一届相比，几乎没有什么相似之处。&#x2026;&#x2026;至少在编辑们看来，不同背景的参会者之间缺乏沟通是这次会议的主要特征。最终，这种沟通隔阂的严重性，以及认识到这只是现实世界中情况的一种反映，使这种沟通隔阂本身成为一个主要的讨论话题。正如加米什会议的主要成果是充分认识到软件危机的严重性一样，编辑们认为，认识到沟通隔阂的严重程度是罗马会议最重要的成果。&rdquo;</li>
+<li>一旦人们开始脱离对问题的广泛认识，并深入潜在解决方案的细节，学术界和工业界的差距便开始显现出来了。</li>
+<li>&ldquo;软件工程师想要做一些可以工作的东西，包括满足对需求、成本、交付和鲁棒性的承诺。优雅和一致性却是次要的。以不可预测甚至不合理的方式改变系统必须是容易的-&#x2013;&#x2014;例如，响应管理指令。目前，理论家们还没法跟上这类事情的发展潮流，就像他们的研究无法跟上大型软件系统日益增长的规模和复杂性一样。&rdquo;</li>
+<li>&ldquo;我想谈谈理论和实践之间的关系。在我看来，这一直是本次会议的潜台词之一，而且没有得到合适的发声。我饶有兴趣地听了关于大型程序管理方案以及使用这些方案编写的程序的讲述。而且我也注意到了昨晚提到的一种观点，即正在执行这些方案的人认为他们被邀请到这里，却被理论家们像小丑一样看待。我也从一些工作更偏理论的人那里听说，他们同样觉得自己被孤立，他们人在这里，但什么也不允许说。&#x2026;&#x2026;&rdquo;</li>
+<li>&ldquo;我认为我们应该记住某个法则，这个法则告诉我们95%的东西都是垃圾。你不应该以95%的计算科学垃圾来判断计算科学对于软件工程的贡献。你不应该从纯理论的高度来看待软件工程，因为95%的软件工程也是垃圾。让我们试着从另一个角度来看待好的事情，看看我们是否真的不能架起一座沟通的桥梁。&rdquo;</li>
+</ul></li>
+
+<li>20世纪70年代初，专业学者是优秀的程序员，行业专家则不是。然而在那十年里，随着软件产业的发展，情况发生了逆转。学术界偏离了产业发展的同步的方向，他们的程序设计和专长领域都局限于小范围，只编写小程序，因此不能给出对业界有用的建议。 #Knuth</li>
+<li>个人计算机革命，使我们转向了交互式终端，并把计算加速倒光速。
+&ldquo;他们所有人在学校正式学习程序之前都学过程序设计。&rdquo;</li>
+<li>任何人都可以把一台个人计算机带回家，不需要有经验程序员的监督和建议，不受工程公司方法论的约束。硬件公司的软件部门萎缩的同时，独立软件公司蓬勃发展，因此现代软件工程是由从未接触过严谨的工程理论的人创建的。</li>
+<li>1976年，建立了非正式的软件心理学会，学会将认为因素作为计算机系统会议的一个主题，这导致了人机交互特别兴趣组（SIGCHI）会议的创建。然后会议重点放在了用户与计算机接口的交互，而不是程序员与软件工具的交互。</li>
+<li>《代码大全》是最早试图汇集如何编写软件的智慧的著作之一。他引用了学术研究来支持书中的建议。
+&ldquo;单个方法200行左右已经超出了合适的长度。&rdquo;</li>
+<li>过去二十年中，软件工程信奉的许多内容（敏捷开发，单元测试，关于错误和异常的争论以及不同程序设计语言的优点）都是在没有任何实验支持的情况下呈现出来的。甚至面向对象设计也没有被严格测试过它是否比以前的那些方法更好。</li>
+<li>Basili 还在坚持对软件工程进行实证研究。2005《实证软件工程基础》(Foundations of Empirical Software Engineering)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgec2969a" class="outline-2">
+<h2 id="orgec2969a">未来</h2>
+<div class="outline-text-2" id="text-orgec2969a">
+<ul class="org-ul">
+<li>相比1968年的北约会议，我们面临的问题基本相同，不过也由一些进展。</li>
+<li>GOTO；更好的程序设计语言，尽管人们本能的抗拒；面向对象设计，带来了设计模式，单元测试，模块见的清晰抽象；对变量名制表符的争论仍在继续，但一半已经是在调侃。</li>
+<li>新的管理方法虽然没有改变基本任务，但已经认识并适应了当前的现实。敏捷开发衍生了多个版本，使人们意识倒了当前在项目协调方面的不足，并明确了代码必须可理解和可修改的要求。</li>
+<li>开源代码贡献者选择加入某个项目，通过实际产生的代码而不是面试来证明自己的价值：并非只有顶级的大学才能培养优秀的程序员，而且成熟的软件公司也没有任何高深的软件开发技术。</li>
+<li>最有希望改善软件工程的前景是向云迁移。</li>
+<li>当软件成为一种服务时，针对测试失败的调查都是这样的。突然间，程序bug成为了开发人员最关心的问题。</li>
+<li>本质上，运行一个服务会对软件工程过去的无意义争论施加一个自动的“废话”过滤器。</li>
+<li>二进制协议和XML。最求性能和方便性，转向追求可维护性和可靠性。</li>
+<li>&ldquo;经验是良师，但愚者无师&rdquo;</li>
+<li>&ldquo;他解释道，自中世纪以来，在现代历史的大部分时间里，人们建造建筑物的主要方式都是雇佣一名建筑大师负责设计、施工和自始至终的监督。&#x2026;&#x2026;但是到了20世纪中叶，建筑大师们都去世了或消失了。建筑业的进步使得建筑过程的每个阶段的多样性和复杂性已经远远超出了个人能力可以掌控的范围。&rdquo;</li>
+<li>&ldquo;在历史长河中，人们在大部分时间里都是生活在无知之下的。&#x2026;&#x2026;我们可以原谅无知的失败。如果在特定情况不存在提供最好办法的知识，那么人们只要尽最大的努力就很好了。但是，如果这样的知识的确存在且人们没有正确应用这些知识，那么你很难不被激怒。&#x2026;&#x2026;哲学家并非无缘无故地用一个无情的术语“愚笨”称呼这些失败。&rdquo;</li>
+<li>过去的数十年间，软件工程一直在寻找银弹。结构化程序设计，正式测试，面向对象的，设计模式，敏捷方法，这些都是有用的，但没有一种可以单独杀死狼人。</li>
+<li><b>程序员已经见识了太多的“银弹”，以至他们不再相信任何事情了。</b></li>
+<li>软件世界已经养成了一种习惯：一旦旧的银弹被玷污就防窃。二元世界观：一项程序设计要么能解决所有问题，要么毫无用处。
+#避免二元化思维</li>
+<li>强迫学生许西新东西</li>
+<li>努力营造公平竞争的环境</li>
+<li>教学生使用更大规模的软件</li>
+<li>强调编写可读的代码</li>
+<li>重新定位某些易于理解的主题</li>
+<li>注重实证研究</li>
+<li>设定最终认证和许可的目标</li>
+<li>是软件开发确实太难，还是软件开发人员能力不足？当然，软件中某些部分的开发是非常困难的，但软件开发人员似乎竭尽所能，在重新发明轮子和低效的方法上浪费了大量的时间，使原本简单的部分变得更加困难。很多错误都出现在一些我们本应已经理解得很好的基本领域中，因此软件行业需要努力弄清楚这些领域，然后将其教授给人们，这样我们就可以将精力投入到真正困难的部分中去。</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Xy Ma</p>
+<p class="date">Created: 2021-05-03 Mon 19:17</p>
+</div>
+</body>
+</html>
